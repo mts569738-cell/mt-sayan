@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - MT.SAYAN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px 0;
+    }
+  .register-container {
+      border: 2px solid #FFD700;
+      padding: 30px 30px 40px 30px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      width: 340px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+  .logo-box {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px auto;
+      border: 2px solid #FFD700;
+      padding: 8px;
+      background: #121212;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  .logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  .register-container h2 {
+      color: #FFD700;
+      margin-bottom: 25px;
+      font-size: 28px;
+      margin-top: 0;
+    }
+  .register-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid white;
+      background: #121212;
+      color: white;
+      border-radius: 5px;
+      box-sizing: border-box;
+      outline: none;
+      font-size: 14px;
+    }
+  .register-container input:focus {
+      border-color: #FFD700;
+    }
+  .register-container button {
+      width: 100%;
+      padding: 12px;
+      background: #FFD700;
+      border: none;
+      color: #121212;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+  .register-container button:hover {
+      background: #e6c200;
+    }
+  .register-container a {
+      color: #FFD700;
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  .register-container a:hover {
+      text-decoration: underline;
+    }
+  .error-msg {
+      color: #ff4444;
+      font-size: 13px;
+      text-align: left;
+      margin-top: -5px;
+      margin-bottom: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    
+    <!-- Logo Box -->
+    <div class="logo-box">
+      <img src="mt-sayan-logo.jpeg" alt="MT.SAYAN Logo">
+    </div>
+
+    <h2>Create Account</h2>
+    <form onsubmit="registerUser(event)">
+      <input type="text" id="fullname" placeholder="Full Name" required>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <div class="error-msg" id="errorMsg">Passwords do not match!</div>
+      <button type="submit">Register</button>
+    </form>
+    <p style="color: #aaa; margin-top: 20px; font-size: 14px;">
+      Already have an account? <a href="login.html" style="color: #FFD700;">Login here</a>
+    </p>
+    <a href="layout.html">← Back to Home</a>
+  </div>
+
+  <script>
+    function registerUser(event) {
+      event.preventDefault();
+      let name = document.getElementById('fullname').value;
+      let user = document.getElementById('username').value;
+      let email = document.getElementById('email').value;
+      let pass = document.getElementById('password').value;
+      let confirmPass = document.getElementById('confirmPassword').value;
+      let errorMsg = document.getElementById('errorMsg');
+      
+      // Password match check
+      if(pass !== confirmPass) {
+        errorMsg.style.display = 'block';
+        return;
+      } else {
+        errorMsg.style.display = 'none';
+      }
+      
+      // தற்காலிகமா Alert காட்டும். பின்னாடி Backend சேர்க்கலாம்
+      if(name && user && email && pass) {
+        alert("Welcome " + name + "! Account Created Successfully ✅");
+        window.location.href = "login.html"; // Register ஆனா Login page போகும்
+      }
+    }
+  </script>
+</body>
+</html>

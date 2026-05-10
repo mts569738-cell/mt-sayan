@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MT.SAYAN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 15px;
+    }
+  .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  .sidebar {
+      width: 100%;
+    }
+  .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #333;
+    }
+  .sidebar a:hover {
+      background: #333;
+      border-color: #FFD700;
+    }
+  .main {
+      flex: 1;
+    }
+  .logo-box {
+      border: 2px solid #FFD700;
+      width: 100%;
+      max-width: 200px;
+      height: 120px;
+      padding: 10px;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+  .logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  .description-box {
+      border: 2px solid #FFD700;
+      min-height: 100px;
+      padding: 15px;
+      background: #1e1e1e;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: left;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+  .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+  .card {
+      border: 2px solid #FFD700;
+      height: 120px;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  .card:hover {
+      background: #333;
+      box-shadow: 0 0 10px #FFD700;
+    }
+  .search-box {
+      display: flex;
+      gap: 5px;
+      margin: 10px 0;
+    }
+  .search-box input {
+      flex: 1;
+      padding: 8px;
+      border: 2px solid white;
+      background: #1e1e1e;
+      color: white;
+      border-radius: 5px;
+      outline: none;
+    }
+  .search-box button {
+      padding: 8px 12px;
+      border: 2px solid #FFD700;
+      background: #1e1e1e;
+      color: #FFD700;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  .search-box button:hover {
+      background: #FFD700;
+      color: #121212;
+    }
+  .login-box {
+      border: 2px solid #FFD700;
+      padding: 30px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+    }
+  .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid white;
+      background: #121212;
+      color: white;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #FFD700;
+      border: none;
+      color: #121212;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Computer Screen-க்கு மட்டும் */
+    @media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+      }
+    .sidebar {
+        width: 200px;
+      }
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="layout.html">🏠 home</a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search cards...">
+        <button onclick="searchCards()">🔍</button>
+      </div>
+      <a href="login.html">Login</a>
+      <a href="registr.html">Register</a>
+     
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <div class="logo-box">
+        <img src="mt-sayan-logo.jpeg" alt="MT.SAYAN Logo">
+      </div>
+
+      <div class="description-box">
+        Welcome to MT.SAYAN, your ultimate learning hub designed for students and creators. We provide comprehensive O/L and A/L past papers with answers to help you excel in exams. Explore simplified Science study materials, notes, and diagrams for better understanding. Our Logomarker tool helps you design professional logos for school projects and businesses instantly. MT.SAYAN combines education with creativity, offering all essential resources in one platform. Whether you're preparing for exams or building your brand, we make learning easier, faster, and more effective. Join MT.SAYAN today and turn your goals into achievements with quality content and smart tools.
+      </div>
+
+      <div class="cards">
+        <div class="card" onclick="window.location.href='logomarker.html'">Logomarker</div>
+        <div class="card" onclick="window.location.href='passpaper.html'">Pass paper</div>
+        <div class="card" onclick="window.location.href='science.html'">Science</div>
+        <div class="card" onclick="window.location.href='technology.html'">TECHNOLOGY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Popup -->
+  <div id="loginPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 1000;">
+    <div class="login-box">
+      <span onclick="closeLogin()" style="position: absolute; top: 10px; right: 15px; color: white; font-size: 24px; cursor: pointer;">&times;</span>
+      <h2 style="color: #FFD700;">MT.SAYAN Login</h2>
+      <form>
+        <input type="text" placeholder="Username or Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function searchCards() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.getElementsByClassName('card');
+      for (let i = 0; i < cards.length; i++) {
+        let cardText = cards[i].innerText.toLowerCase();
+        if (cardText.includes(input)) {
+          cards[i].style.display = "flex";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+    document.getElementById('searchInput').addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') searchCards();
+    });
+    function openLogin() {
+      document.getElementById('loginPopup').style.display = 'flex';
+    }
+    function closeLogin() {
+      document.getElementById('loginPopup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
